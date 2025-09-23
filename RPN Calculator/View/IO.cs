@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator.View
 {
-    internal class Class1
+    internal class IO
     {
     }
 }
