@@ -1,4 +1,4 @@
-﻿namespace RPN_Calculator
+﻿namespace Calculator
 {
     internal class Calculator
     {
