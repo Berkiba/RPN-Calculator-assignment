@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    internal class Stack
+    public interface IStack<T>
     {
+        void Push(T item);
+        T Pop();
+        bool IsEmpty();
     }
 }
