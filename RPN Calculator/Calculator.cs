@@ -1,12 +1,20 @@
-﻿namespace Calculator
+﻿using Calculator.Model;
+
+namespace Calculator
 {
-    internal class Calculator
+    public class Calculator
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello jafar sultan berkant, World!");
-            Console.WriteLine("Test");
-            Console.WriteLine("Test1");
+            RpnStack<int> stack = new RpnStack<int>();
+
+            stack.Push(5);
+            stack.Push(10);
+
+
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.IsEmpty());
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Calculator.Model
 {
     public interface IStack<T>
     {
-        void Push(T item);
-        T Pop();
-        bool IsEmpty();
+        void Push(T item);  // Lägger till ett element på stacken
+        T Pop();   // Tar bort och hämta det översta elementet
+        bool IsEmpty();  // den kollar om stacken är tom
     }
 }
