@@ -18,7 +18,7 @@ namespace Calculator.Model
 
             public void Push(T item)
             {
-                items.Add(item);  // Lägg till längst bak i listan
+                items.Add(item);                     // Lägg till längst bak i listan
             }
 
             public T Pop()
@@ -28,11 +28,11 @@ namespace Calculator.Model
                     throw new InvalidOperationException("Stack is empty.");
                 }
 
-                // Hämta sista elementet
+                                                 // Hämtar sista elementet
                 int lastIndex = items.Count - 1;
                 T value = items[lastIndex];
 
-                // Ta bort det från listan
+                                                // Tar bort det från listan
                 items.RemoveAt(lastIndex);
 
                 return value;

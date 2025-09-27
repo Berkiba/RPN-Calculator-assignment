@@ -1,20 +1,42 @@
-﻿using Calculator.Model;
+﻿using Calculator.Controller;
+using Calculator.Model;
+using Calculator.View;
+using System;
 
 namespace Calculator
 {
     public class Calculator
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            RpnStack<int> stack = new RpnStack<int>();
+            Logic logic = new Logic();
 
-            stack.Push(5);
-            stack.Push(10);
+            IOReader reader;
+            IOWriter writer;
 
+            if (args.Length == 0)
+            {
+                // Interaktivt läge (via konsolen)
+                reader = new ConsoleIO();
+                writer = new ConsoleIO();
+            }
+            else if (args.Length == 2)
+            {
+                // Fil-baserat läge
+                string inputFile = args[0];
+                string outputFile = args[1];
+                reader = new FileIO(inputFile);
+                writer = new FileIO(outputFile, true);
+            }
+            else
+            {
+                Console.WriteLine("Syntax: Calculator [source destination]");
+                return;
+            }
 
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.IsEmpty());
+            CalculatorController controller = new CalculatorController(logic, reader, writer);
+            controller.Run();
         }
     }
-}
+
+    }
