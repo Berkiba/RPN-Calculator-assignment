@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    internal class IStack<T>
+    public interface IStack<T>
     {
-        void Push(T item);
-        T Pop();
-        bool IsEmpty();
+        void Push(T item);   // Lägger till ett element på stacken
+        T Pop();             // Tar bort och hämtar det översta elementet
+        bool IsEmpty();      // Kollar om stacken är tom
     }
 }

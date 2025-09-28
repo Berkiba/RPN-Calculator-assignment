@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Calculator.Model.Exceptions;
+
+namespace Calculator.Model.Tokens
+{
+    internal class ModulusOperator
+    {
+        public class ModulusOperator : Operator
+        {
+            public ModulusOperator() : base("%") { }
+
+            public override double Calculate(double a, double b)
+            {
+                if (b == 0) throw new DivideByZeroException(a, b);
+                return a % b;
+            }
+        }
+    }
+}
