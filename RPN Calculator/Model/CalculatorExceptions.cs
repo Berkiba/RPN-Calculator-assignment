@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    public class Logic
+    internal class CalculatorExceptions
     {
-        int x, y;
-
     }
 }

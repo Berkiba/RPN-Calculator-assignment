@@ -5,45 +5,49 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Calculator.Model
-{ 
-                                        // En enkel stack som använder en lista i bakgrunden
-        public class RpnStack<T> : IStack<T>
+{
+    // En enkel stack som använder en lista i bakgrunden
+    public class RpnStack<T> : IStack<T>
+    {
+        private List<T> items;   // Här sparar vi sakerna
+
+        public RpnStack()
         {
-            private List<T> items;   // Här sparar vi sakerna
+            items = new List<T>();
+        }
 
-            public RpnStack()
+        public void Push(T item)
+        {
+            items.Add(item);                     // Lägg till längst bak i listan
+        }
+
+        public T Pop()
+        {
+            if (items.Count == 0)
             {
-                items = new List<T>();
+                throw new InvalidOperationException("Stack is empty.");
             }
 
-            public void Push(T item)
-            {
-                items.Add(item);                     // Lägg till längst bak i listan
-            }
+            // Hämtar sista elementet
+            int lastIndex = items.Count - 1;
+            T value = items[lastIndex];
 
-            public T Pop()
-            {
-                if (items.Count == 0)
-                {
-                    throw new InvalidOperationException("Stack is empty.");
-                }
+            // Tar bort det från listan
+            items.RemoveAt(lastIndex);
 
-                                                 // Hämtar sista elementet
-                int lastIndex = items.Count - 1;
-                T value = items[lastIndex];
+            return value;
+        }
 
-                                                // Tar bort det från listan
-                items.RemoveAt(lastIndex);
-
-                return value;
-            }
-
-            public bool IsEmpty()
-            {
-                return items.Count == 0;
-            }
+        public bool IsEmpty()
+        {
+            return items.Count == 0;
+        }
+        public void Clear()
+        {
+            items.Clear();
         }
     }
+}
 
 
 
