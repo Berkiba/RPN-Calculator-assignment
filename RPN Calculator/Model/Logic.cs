@@ -76,5 +76,5 @@ namespace Calculator.Model
             throw new InvalidOperationException();
         }
     }
-
+     // Note: Till dig som läser, jag ska addera kommentarer senare   
 }
