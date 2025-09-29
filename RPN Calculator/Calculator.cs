@@ -7,6 +7,8 @@ namespace Calculator
 {
     public class Calculator
     {
+
+        //Note: Maybe change the return type of the token operations to float instead of double.
         static void Main(string[] args)
         {
             Logic logic = new Logic();
