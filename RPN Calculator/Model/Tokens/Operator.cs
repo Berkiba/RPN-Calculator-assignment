@@ -3,31 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Calculator.Model.Tokens.EmptyTokenClass;
+using static Calculator.Model.Tokens.Token;
 
 namespace Calculator.Model.Tokens
 {
-    internal class Operator
+
+    public abstract class Operator : Token
     {
-        // Base class for operators
-        public class Operator : Token
+        public string Symbol { get; }
+
+        protected Operator(string symbol)
         {
-            public string Symbol;
-
-            public Operator(string symbol)
-            {
-                Symbol = symbol;
-            }
-
-            public virtual double Calculate(double a, double b)
-            {
-                return 0; // overridden in subclasses
-            }
-
-            public override string ToString()
-            {
-                return Symbol;
-            }
+            Symbol = symbol;
         }
+
+        public abstract double Calculate(double a, double b);
+
+        public override string ToString() => Symbol;
     }
+
 }

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model.Exceptions
 {
-    internal class InvalidTokenExpetion
+
+    public class InvalidTokenException : Exception
     {
-        public class InvalidTokenException : Exception
+        public InvalidTokenException(string token)
+            : base("InvalidTokenException: " + token)
         {
-            public InvalidTokenException(string token)
-                : base("InvalidTokenException: " + token)
-            {
-            }
         }
     }
+
 }

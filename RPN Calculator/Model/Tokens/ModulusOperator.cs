@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Calculator.Model.Exceptions;
+using DivideByZeroException = Calculator.Model.Exceptions.DivideByZeroException;
 
 namespace Calculator.Model.Tokens
 {
-    internal class ModulusOperator
-    {
-        public class ModulusOperator : Operator
-        {
-            public ModulusOperator() : base("%") { }
 
-            public override double Calculate(double a, double b)
-            {
-                if (b == 0) throw new DivideByZeroException(a, b);
-                return a % b;
-            }
+    public class ModulusOperator : Operator
+    {
+        public ModulusOperator() : base("%") { }
+
+        public override double Calculate(double a, double b)
+        {
+            if (b == 0) throw new DivideByZeroException(a, b);
+            return a % b;
         }
     }
+
 }

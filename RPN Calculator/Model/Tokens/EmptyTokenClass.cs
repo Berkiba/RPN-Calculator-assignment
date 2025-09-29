@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model.Tokens
 {
-    internal class EmptyTokenClass
+    /// Base class for all tokens
+    public abstract class Token
     {
-        //Base class for Token types
-        public class Token
-        {
-        }
+        //Intentionally empty, do not touch
     }
 }
