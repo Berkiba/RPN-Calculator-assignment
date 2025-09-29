@@ -6,36 +6,25 @@ using System.Threading.Tasks;
 
 namespace Calculator.View
 {
-    internal class FileIO : IOReader, IOWriter
+    public class FileIOReader : IOReader
     {
-        private StreamReader? reader;
-        private StreamWriter? writer;
+        private string[] _rader; // spara alla rader
+        private int _index = 0; //något sätt att veta vilken rad man är på
 
-        // Konstruktor för läsning
-        public FileIO(string inputFile)
+        public FileIOReader(string filePath)
         {
-            reader = new StreamReader(inputFile);
+            _rader = File.ReadAllLines(filePath); // läser in input.txt som en lista av rader
         }
 
-        // Konstruktor för skrivning
-        public FileIO(string outputFile, bool writeMode)
+        public string? ReadLine() 
         {
-            writer = new StreamWriter(outputFile);
-        }
+            if (_index <= _rader.Length) // ifall rad index är över antal rader i filen => null
+                return null;
 
-        public string ReadLine()
-        {
-            if (reader == null || reader.EndOfStream) return "";
-            return reader.ReadLine() ?? "";
-        }
 
-        public void WriteLine(string message)
-        {
-            if (writer != null)
-            {
-                writer.WriteLine(message);
-                writer.Flush();
-            }
+            string rad = _rader[_index]; // annars så går index upp och returnerar nästa rad
+            _index++;
+            return rad;
         }
     }
 }

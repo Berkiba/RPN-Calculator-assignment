@@ -8,18 +8,12 @@ using System;
 
 namespace Calculator.View
 {
-    internal class ConsoleIO : IOReader, IOWriter
+    public sealed class ConsoleInputReader : IOReader // läser en rad från konsolen
     {
-        public string ReadLine()
-        {
-            Console.Write("Enter expression (empty = exit): ");
-            return Console.ReadLine() ?? "";
-        }
-
-        public void WriteLine(string message)
-        {
-            Console.WriteLine(message);
-        }
+        public string? ReadLine() => Console.ReadLine();
+    }
+    public sealed class ConsoleOutputWriter : IOWriter // skriver en rad från konsolen
+    {
+        public void WriteLine(string message) => Console.WriteLine(message);
     }
 }
-
