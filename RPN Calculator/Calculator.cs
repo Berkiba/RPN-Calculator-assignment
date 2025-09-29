@@ -18,13 +18,12 @@ namespace Calculator
 
             if (args.Length == 0)
             {
-                // Interaktivt läge (via konsolen)
                 reader = new ConsoleIO();
                 writer = new ConsoleIO();
             }
             else if (args.Length == 2)
             {
-                // Fil-baserat läge
+                // Fil läge
                 string inputFile = args[0];
                 string outputFile = args[1];
                 reader = new FileIO(inputFile);
