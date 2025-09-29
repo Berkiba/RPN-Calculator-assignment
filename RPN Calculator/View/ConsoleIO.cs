@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 using System;
 
-using System;
-
 namespace Calculator.View
 {
     internal class ConsoleIO : IOReader, IOWriter
