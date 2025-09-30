@@ -18,7 +18,7 @@ namespace Calculator
 
             if (args.Length == 0)
             {
-                reader = new ConsoleInputReader(); // ändrade dessa för det var mismatch här // zaid
+                reader = new ConsoleInputReader();
                 writer = new ConsoleOutputWriter();
             }
             else if (args.Length == 2)
@@ -26,7 +26,7 @@ namespace Calculator
                 // Fil läge
                 string inputFile = args[0];
                 string outputFile = args[1];
-                reader = new FileIOReader(inputFile); // här också
+                reader = new FileIOReader(inputFile);
                 writer = new FileIOWriter(outputFile, true);
             }
             else

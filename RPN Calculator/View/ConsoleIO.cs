@@ -14,6 +14,6 @@ namespace Calculator.View
     }
     public sealed class ConsoleOutputWriter : IOWriter // skriver en rad från konsolen
     {
-        public void WriteLine(string message) => Console.WriteLine(message);
+        public void WriteLine(string message) => Console.WriteLine($"{message:F2}");
     }
 }
