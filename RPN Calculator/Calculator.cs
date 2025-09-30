@@ -18,16 +18,16 @@ namespace Calculator
 
             if (args.Length == 0)
             {
-                reader = new ConsoleIO();
-                writer = new ConsoleIO();
+                reader = new ConsoleInputReader(); // ändrade dessa för det var mismatch här // zaid
+                writer = new ConsoleOutputWriter();
             }
             else if (args.Length == 2)
             {
                 // Fil läge
                 string inputFile = args[0];
                 string outputFile = args[1];
-                reader = new FileIO(inputFile);
-                writer = new FileIO(outputFile, true);
+                reader = new FileIOReader(inputFile); // här också
+                writer = new FileIOWriter(outputFile, true);
             }
             else
             {

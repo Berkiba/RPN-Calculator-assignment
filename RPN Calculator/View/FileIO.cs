@@ -18,7 +18,7 @@ namespace Calculator.View
 
         public string? ReadLine() 
         {
-            if (_index <= _rader.Length) // ifall rad index är över antal rader i filen => null
+            if (_index >= _rader.Length) // ifall rad index är över antal rader i filen => null
                 return null;
 
 
@@ -27,4 +27,27 @@ namespace Calculator.View
             return rad;
         }
     }
+
+    public class FileIOWriter : IOWriter
+    {
+        private readonly string _filePath;
+
+        public FileIOWriter(string filePath, bool overwrite = false)
+        {
+            _filePath = filePath;
+
+            if (overwrite && File.Exists(_filePath))
+            {
+                File.Delete(_filePath); // tar bort filen om den redan finns,kanske blir error?
+            }
+        }
+
+        public void WriteLine(string message)
+        {
+            File.AppendAllText(_filePath, message + "\n"); // nu borde det funka att skriva till filen
+        }
+
+
+    }
+
 }
