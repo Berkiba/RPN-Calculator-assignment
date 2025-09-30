@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    // En enkel stack som använder en lista i bakgrunden
+    // A basic stack that uses a list in the background
     public class RpnStack<T> : IStack<T>
     {
-        private List<T> items;   // Här sparar vi sakerna
+        private List<T> items;   // Here are the items stored
 
         public RpnStack()
         {
@@ -18,7 +18,7 @@ namespace Calculator.Model
 
         public void Push(T item)
         {
-            items.Add(item);                     // Lägg till längst bak i listan
+            items.Add(item);                     // Add item to the end of the list
         }
 
         public T Pop()
@@ -28,20 +28,22 @@ namespace Calculator.Model
                 throw new InvalidOperationException("Stack is empty.");
             }
 
-            // Hämtar sista elementet
+            // Getting the last item
             int lastIndex = items.Count - 1;
             T value = items[lastIndex];
 
-            // Tar bort det från listan
+            // Take it out from the list
             items.RemoveAt(lastIndex);
 
             return value;
         }
 
+        // Check if stack is empty
         public bool IsEmpty()
         {
             return items.Count == 0;
         }
+        // Clear the stack
         public void Clear()
         {
             items.Clear();

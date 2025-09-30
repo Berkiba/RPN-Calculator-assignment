@@ -13,7 +13,11 @@ namespace Calculator.Model.Exceptions
         public double Left { get; }
         public double Right { get; }
 
+
         public DivideByZeroException(double left, double right)
+            
+            //Call base constructor with formatted message
+         
             : base($"DivideByZeroException: {left:0.00}/{right:0.00}")
         {
             Left = left;

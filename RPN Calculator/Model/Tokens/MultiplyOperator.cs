@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model.Tokens
 {
-
+    //Basic multiply function, returning double
     public class MultiplyOperator : Operator
     {
         public MultiplyOperator() : base("*") { }

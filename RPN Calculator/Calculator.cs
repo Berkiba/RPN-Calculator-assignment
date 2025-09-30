@@ -8,7 +8,7 @@ namespace Calculator
     public class Calculator
     {
 
-        //Note: Maybe change the return type of the token operations to float instead of double.
+        // Main entry point
         static void Main(string[] args)
         {
             Logic logic = new Logic();
@@ -16,25 +16,27 @@ namespace Calculator
             IOReader reader;
             IOWriter writer;
 
+            // Console state
             if (args.Length == 0)
             {
-                reader = new ConsoleInputReader(); // ändrade dessa för det var mismatch här // zaid
+                reader = new ConsoleInputReader(); 
                 writer = new ConsoleOutputWriter();
             }
             else if (args.Length == 2)
             {
-                // Fil läge
+                // File state
                 string inputFile = args[0];
                 string outputFile = args[1];
-                reader = new FileIOReader(inputFile); // här också
+                reader = new FileIOReader(inputFile);
                 writer = new FileIOWriter(outputFile, true);
             }
+            // Syntax error state
             else
             {
                 Console.WriteLine("Syntax: Calculator [source destination]");
                 return;
             }
-
+            // Create controller and run program
             CalculatorController controller = new CalculatorController(logic, reader, writer);
             controller.Run();
         }

@@ -8,21 +8,21 @@ using Calculator.Model.Tokens;
 
 namespace Calculator.Model
 {
-
+    /// Core logic for Calcultor
     public class Logic
     {
         private RpnStack<Token> stack;
-
+        // Constructor
         public Logic()
         {
             stack = new RpnStack<Token>();
         }
 
+        // Claculate the result
         public double Calculate(string expression)
         {
             stack.Clear();
 
-            // Split expression
             var parts = expression.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             foreach (string part in parts)
             {
@@ -30,7 +30,6 @@ namespace Calculator.Model
                 stack.Push(token);
             }
 
-            // Evaluate 
             double result = EvaluateToken();
 
             // If anything remains
@@ -40,6 +39,7 @@ namespace Calculator.Model
             return result;
         }
 
+        //
         private Token ParseToken(string part)
         {
             if (double.TryParse(part, out double number))
@@ -55,6 +55,7 @@ namespace Calculator.Model
                 _ => throw new InvalidTokenException(part)
             };
         }
+        // Evaluate the token
         private double EvaluateToken()
         {
             if (stack.IsEmpty())
@@ -62,6 +63,7 @@ namespace Calculator.Model
 
             Token token = stack.Pop();
 
+            // If token is operand, return its value
             if (token is Operand opnd)
             {
                 return opnd.Value;
@@ -72,9 +74,7 @@ namespace Calculator.Model
                 double left = EvaluateToken();
                 return op.Calculate(left, right);
             }
-
             throw new InvalidOperationException();
         }
     }
-     // Note: Till dig som läser, jag ska addera kommentarer senare   
 }

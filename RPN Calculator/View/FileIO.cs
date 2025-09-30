@@ -8,21 +8,22 @@ namespace Calculator.View
 {
     public class FileIOReader : IOReader
     {
-        private string[] _rader; // spara alla rader
-        private int _index = 0; //något sätt att veta vilken rad man är på
+        private string[] _rader; // Save all lines from the file
+        private int _index = 0; // A way to know which line we are at
 
         public FileIOReader(string filePath)
         {
-            _rader = File.ReadAllLines(filePath); // läser in input.txt som en lista av rader
+            _rader = File.ReadAllLines(filePath); // Reads input.txt like a list of rows
         }
 
         public string? ReadLine() 
         {
-            if (_index >= _rader.Length) // ifall rad index är över antal rader i filen => null
+            if (_index >= _rader.Length) // In case row index are over the number of rows in the file => null
+
                 return null;
 
 
-            string rad = _rader[_index]; // annars så går index upp och returnerar nästa rad
+            string rad = _rader[_index]; // Otherwize go up an index and return the row
             _index++;
             return rad;
         }
@@ -38,13 +39,13 @@ namespace Calculator.View
 
             if (overwrite && File.Exists(_filePath))
             {
-                File.Delete(_filePath); // tar bort filen om den redan finns,kanske blir error?
+                File.Delete(_filePath); // Delete the file if it already exists
             }
         }
 
         public void WriteLine(string message)
         {
-            File.AppendAllText(_filePath, message + "\n"); // nu borde det funka att skriva till filen
+            File.AppendAllText(_filePath, message + "\n"); // Now it should write to the file
         }
 
 

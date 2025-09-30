@@ -8,11 +8,11 @@ using DivideByZeroException = Calculator.Model.Exceptions.DivideByZeroException;
 
 namespace Calculator.Model.Tokens
 {
-
+    //Modulus operation returning double
     public class ModulusOperator : Operator
     {
         public ModulusOperator() : base("%") { }
-
+       
         public override double Calculate(double a, double b)
         {
             if (b == 0) throw new DivideByZeroException(a, b);
