@@ -10,7 +10,7 @@ namespace Calculator.Model.Tokens
     public class AddOperator : Operator
     {
         public AddOperator() : base("+") { }
-        public override double calculate(double a, double b) => a + b;
+        public override double Calculate(double a, double b) => a + b;
     }
 
 }
