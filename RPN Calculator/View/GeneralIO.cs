@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Calculator.View
 {
-    public interface IOReader // läser en rad text
+    public interface IOReader // Reads a row text
     {
         string? ReadLine();
     }
 
-    public interface IOWriter // skriver en rad text
+    public interface IOWriter // Writes a row text
     {
         void WriteLine(string message);
     }
-} // dessa används egentligen bara som hjälpfunktioner till ConsoleIO och FileIO
+}// These are used only as helper functions for ConsoleIO and FileIO
 
