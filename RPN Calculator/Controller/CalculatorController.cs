@@ -38,7 +38,7 @@ namespace Calculator.Controller
                 try
                 {
                     double result = logic.Calculate(input);
-                    writer.WriteLine("Result: " + result);
+                    writer.WriteLine($"Result: {(float)result}");
                 }
                 catch (Exception e)
                 {

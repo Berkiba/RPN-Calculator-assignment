@@ -8,7 +8,7 @@ using DivideByZeroException = Calculator.Model.Exceptions.DivideByZeroException;
 
 namespace Calculator.Model.Tokens
 {
-
+    //Divide operation returning double
     public class DivideOperator : Operator
     {
         public DivideOperator() : base("/") { }
