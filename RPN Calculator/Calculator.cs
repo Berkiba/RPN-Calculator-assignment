@@ -39,7 +39,10 @@ namespace Calculator
             // Create controller and run program
             CalculatorController controller = new CalculatorController(logic, reader, writer);
             controller.Run();
+
+
+            // Runs the Input and Output files, overwrites the Output file if necessary
+            CalculatorController.RunFile("input.txt", "output.txt", overwrite: true);
         }
     }
-
-    }
+}

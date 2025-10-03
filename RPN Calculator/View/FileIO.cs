@@ -43,9 +43,9 @@ namespace Calculator.View
             }
         }
 
-        public void WriteLine(string message)
+        public void WriteLine(string message) // This writes the lines in output.txt
         {
-            File.AppendAllText(_filePath, message + "\n"); // Now it should write to the file
+            File.AppendAllText(_filePath, message + System.Environment.NewLine);
         }
 
 

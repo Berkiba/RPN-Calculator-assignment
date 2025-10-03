@@ -8,4 +8,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\input.txt" />
+    <None Include="bin\Debug\net8.0\output.txt" />
+  </ItemGroup>
+
 </Project>

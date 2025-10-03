@@ -24,6 +24,18 @@ namespace Calculator.Controller
             this.reader = reader;
             this.writer = writer;
         }
+        public static void RunFile(string inputPath, string outputPath, bool overwrite = false, Logic? logic = null)
+        {
+
+            // Reads and writes the input and output files
+            var reader = new FileIOReader(inputPath);
+            var writer = new FileIOWriter(outputPath, overwrite);
+            logic ??= new Logic();
+
+            var controller = new CalculatorController(logic, reader, writer);
+            controller.Run();
+        }
+
 
         public void Run()
         {
